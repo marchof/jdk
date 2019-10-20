@@ -121,7 +121,7 @@ public class TableExample3 {
             }
 
             @Override
-            public Class getColumnClass(int col) {
+            public Class<?> getColumnClass(int col) {
                 return getValueAt(0, col).getClass();
             }
 

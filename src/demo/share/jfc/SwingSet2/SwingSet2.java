@@ -703,8 +703,8 @@ public class SwingSet2 extends JPanel {
         setStatus(getString("Status.loading") + getString(classname + ".name"));
         DemoModule demo = null;
         try {
-            Class demoClass = Class.forName(classname);
-            Constructor demoConstructor = demoClass.getConstructor(new Class[]{SwingSet2.class});
+            Class<?> demoClass = Class.forName(classname);
+            Constructor<?> demoConstructor = demoClass.getConstructor(new Class[]{SwingSet2.class});
             demo = (DemoModule) demoConstructor.newInstance(new Object[]{this});
             addDemo(demo);
         } catch (Exception e) {

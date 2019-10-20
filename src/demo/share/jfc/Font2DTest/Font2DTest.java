@@ -67,7 +67,6 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.util.EnumSet;
 import java.util.StringTokenizer;
 import java.util.BitSet;
 import javax.swing.*;
@@ -101,8 +100,8 @@ public final class Font2DTest extends JPanel
     private final ChoiceV2 transformMenu;
     private final ChoiceV2 transformMenuG2;
     private final ChoiceV2 methodsMenu;
-    private final JComboBox antiAliasMenu;
-    private final JComboBox fracMetricsMenu;
+    private final JComboBox<FontPanel.AAValues> antiAliasMenu;
+    private final JComboBox<FontPanel.FMValues> fracMetricsMenu;
 
     private final JSlider contrastSlider;
 
@@ -151,10 +150,10 @@ public final class Font2DTest extends JPanel
         methodsMenu = new ChoiceV2( this );
 
         antiAliasMenu =
-            new JComboBox(EnumSet.allOf(FontPanel.AAValues.class).toArray());
+            new JComboBox<>(FontPanel.AAValues.values());
         antiAliasMenu.addActionListener(this);
         fracMetricsMenu =
-            new JComboBox(EnumSet.allOf(FontPanel.FMValues.class).toArray());
+            new JComboBox<>(FontPanel.FMValues.values());
         fracMetricsMenu.addActionListener(this);
 
         contrastSlider = new JSlider(JSlider.HORIZONTAL, 100, 250,
@@ -467,7 +466,7 @@ public final class Font2DTest extends JPanel
         int style = fontStyles[styleMenu.getSelectedIndex()];
         Font f;
         for (int i = 0; i < listCount; i++) {
-            String fontName = (String)fontMenu.getItemAt(i);
+            String fontName = fontMenu.getItemAt(i);
             f = new Font(fontName, style, size);
             if ((rm.getSelectedIndex() != RangeMenu.SURROGATES_AREA_INDEX) &&
                 canDisplayRange(f, rangeStart, rangeEnd)) {
@@ -905,7 +904,7 @@ public final class Font2DTest extends JPanel
                                 parseUserText( userTextArea.getText() ), null );
         }
         else if ( source instanceof JComboBox ) {
-            JComboBox c = (JComboBox) source;
+            JComboBox<?> c = (JComboBox<?>) source;
 
             /// RangeMenu handles actions by itself and then calls fireRangeChanged,
             /// so it is not listed or handled here
@@ -1070,7 +1069,7 @@ public final class Font2DTest extends JPanel
         }
     }
 
-    private final class ChoiceV2 extends JComboBox {
+    private final class ChoiceV2 extends JComboBox<String> {
 
         private BitSet bitSet = null;
 
@@ -1141,7 +1140,7 @@ public final class Font2DTest extends JPanel
             this.choice = choice;
         }
 
-        public Component getListCellRendererComponent(JList list,
+        public Component getListCellRendererComponent(JList<?> list,
                                                       Object value,
                                                       int index,
                                                       boolean isSelected,

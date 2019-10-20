@@ -91,7 +91,7 @@ public final class TableSorter extends TableMap {
     }
 
     public int compareRowsByColumn(int row1, int row2, int column) {
-        Class type = model.getColumnClass(column);
+        Class<?> type = model.getColumnClass(column);
         TableModel data = model;
 
         // Check for nulls

@@ -62,7 +62,7 @@ import java.util.regex.*;
 
 /// Custom made choice menu that holds data for unicode range
 
-public final class RangeMenu extends JComboBox implements ActionListener {
+public final class RangeMenu extends JComboBox<String> implements ActionListener {
 
     private static final int[][] UNICODE_RANGES = getUnicodeRanges();
     private static final String[] UNICODE_RANGE_NAMES = getUnicodeRangeNames();
@@ -181,7 +181,7 @@ public final class RangeMenu extends JComboBox implements ActionListener {
         Object source = e.getSource();
 
         if ( source instanceof JComboBox ) {
-                String rangeName = (String)((JComboBox)source).getSelectedItem();
+                String rangeName = (String)((JComboBox<?>)source).getSelectedItem();
 
                 if ( rangeName.equals("Custom...") ) {
                     useCustomRange = true;

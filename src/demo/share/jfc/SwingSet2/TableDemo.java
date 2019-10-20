@@ -75,8 +75,8 @@ public class TableDemo extends DemoModule {
     JSlider     interCellSpacingSlider;
     JSlider     rowHeightSlider;
 
-    JComboBox   selectionModeComboBox = null;
-    JComboBox   resizeModeComboBox = null;
+    JComboBox<String>   selectionModeComboBox = null;
+    JComboBox<String>   resizeModeComboBox = null;
 
     JLabel      headerLabel;
     JLabel      footerLabel;
@@ -126,7 +126,7 @@ public class TableDemo extends DemoModule {
         JPanel printPanel = new JPanel(new ColumnLayout());
 
         getDemoPanel().add(controlPanel, BorderLayout.NORTH);
-        Vector relatedComponents = new Vector();
+        Vector<JComponent> relatedComponents = new Vector<>();
 
 
         // check box panel
@@ -245,7 +245,7 @@ public class TableDemo extends DemoModule {
         selectMode.setBorder(new TitledBorder(getString("TableDemo.selection_mode")));
 
 
-        selectionModeComboBox = new JComboBox() {
+        selectionModeComboBox = new JComboBox<>() {
             public Dimension getMaximumSize() {
                 return getPreferredSize();
             }
@@ -256,7 +256,7 @@ public class TableDemo extends DemoModule {
         selectionModeComboBox.setSelectedIndex(tableView.getSelectionModel().getSelectionMode());
         selectionModeComboBox.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
-                JComboBox source = (JComboBox)e.getSource();
+                JComboBox<?> source = (JComboBox<?>)e.getSource();
                 tableView.setSelectionMode(source.getSelectedIndex());
             }
         });
@@ -272,7 +272,7 @@ public class TableDemo extends DemoModule {
         resizeMode.setBorder(new TitledBorder(getString("TableDemo.autoresize_mode")));
 
 
-        resizeModeComboBox = new JComboBox() {
+        resizeModeComboBox = new JComboBox<>() {
             public Dimension getMaximumSize() {
                 return getPreferredSize();
             }
@@ -285,7 +285,7 @@ public class TableDemo extends DemoModule {
         resizeModeComboBox.setSelectedIndex(tableView.getAutoResizeMode());
         resizeModeComboBox.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
-                JComboBox source = (JComboBox)e.getSource();
+                JComboBox<?> source = (JComboBox<?>)e.getSource();
                 tableView.setAutoResizeMode(source.getSelectedIndex());
             }
         });
@@ -367,7 +367,7 @@ public class TableDemo extends DemoModule {
      *
      * @param components The list of objects that are related
      */
-    void buildAccessibleGroup(Vector components) {
+    void buildAccessibleGroup(Vector<JComponent> components) {
 
         AccessibleContext context = null;
         int numComponents = components.size();
@@ -549,7 +549,7 @@ public class TableDemo extends DemoModule {
             public int getRowCount() { return data.length;}
             public Object getValueAt(int row, int col) {return data[row][col];}
             public String getColumnName(int column) {return names[column];}
-            public Class getColumnClass(int c) {return getValueAt(0, c).getClass();}
+            public Class<?> getColumnClass(int c) {return getValueAt(0, c).getClass();}
             public boolean isCellEditable(int row, int col) {return col != 5;}
             public void setValueAt(Object aValue, int row, int column) { data[row][column] = aValue; }
          };
@@ -557,7 +557,7 @@ public class TableDemo extends DemoModule {
 
         // Create the table
         tableView = new JTable(dataModel);
-        TableRowSorter sorter = new TableRowSorter(dataModel);
+        TableRowSorter<TableModel> sorter = new TableRowSorter<>(dataModel);
         tableView.setRowSorter(sorter);
 
         // Show colors by rendering them in their own color.
@@ -575,7 +575,7 @@ public class TableDemo extends DemoModule {
         };
 
         // Create a combo box to show that you can use one in a table.
-        JComboBox comboBox = new JComboBox();
+        JComboBox<NamedColor> comboBox = new JComboBox<>();
         comboBox.addItem(aqua);
         comboBox.addItem(beige);
         comboBox.addItem(black);

@@ -92,9 +92,9 @@ public class DirectionPanel extends JPanel {
     }
 
     public void setSelection( String selection  ) {
-        Enumeration e = group.getElements();
+        Enumeration<AbstractButton> e = group.getElements();
         while( e.hasMoreElements() ) {
-            JRadioButton b = (JRadioButton)e.nextElement();
+        	AbstractButton b = e.nextElement();
             if( b.getActionCommand().equals(selection) ) {
                b.setSelected(true);
             }

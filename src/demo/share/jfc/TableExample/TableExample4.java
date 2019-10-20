@@ -123,7 +123,7 @@ public class TableExample4 {
             }
 
             @Override
-            public Class getColumnClass(int c) {
+            public Class<?> getColumnClass(int c) {
                 return getValueAt(0, c).getClass();
             }
 
@@ -147,7 +147,7 @@ public class TableExample4 {
         tableView.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
         // Create a combo box to show that you can use one in a table.
-        JComboBox comboBox = new JComboBox();
+        JComboBox<String> comboBox = new JComboBox<>();
         comboBox.addItem("Red");
         comboBox.addItem("Orange");
         comboBox.addItem("Yellow");

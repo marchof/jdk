@@ -434,7 +434,7 @@ public final class FontPanel extends JPanel implements AdjustmentListener {
         private int canvasInset_X = 5, canvasInset_Y = 5;
 
         /// LineBreak'ed TextLayout vector
-        private Vector lineBreakTLs = null;
+        private Vector<TextLayout> lineBreakTLs = null;
 
         /// Whether the current draw command requested is for printing
         private boolean isPrinting = false;
@@ -800,7 +800,7 @@ public final class FontPanel extends JPanel implements AdjustmentListener {
                 if ( textToUse == FILE_TEXT ) {
                     if ( !isPrinting )
                       f2dt.fireChangeStatus( "LineBreaking Text... Please Wait", false );
-                    lineBreakTLs = new Vector();
+                    lineBreakTLs = new Vector<>();
                     for ( int i = 0; i < fileText.length; i++ ) {
                         AttributedString as =
                           new AttributedString( fileText[i], g2.getFont().getAttributes() );
@@ -929,7 +929,7 @@ public final class FontPanel extends JPanel implements AdjustmentListener {
                 float xPos, yPos = (float) canvasInset_Y;
                 g2.drawRect( 0, 0, w - 1, h - 1 );
                 for ( int i = drawStart; i <= drawEnd; i++ ) {
-                    TextLayout oneLine = (TextLayout) lineBreakTLs.elementAt( i );
+                    TextLayout oneLine = lineBreakTLs.elementAt( i );
                     xPos =
                       oneLine.isLeftToRight() ?
                       canvasInset_X : ( (float) w - oneLine.getAdvance() - canvasInset_X );
@@ -992,9 +992,9 @@ public final class FontPanel extends JPanel implements AdjustmentListener {
             /// Back up metrics and other drawing info before printing modifies it
             int backupDrawStart = drawStart, backupDrawEnd = drawEnd;
             int backupNumCharAcross = numCharAcross, backupNumCharDown = numCharDown;
-            Vector backupLineBreakTLs = null;
+            Vector<TextLayout> backupLineBreakTLs = null;
             if ( textToUse == FILE_TEXT )
-              backupLineBreakTLs = (Vector) lineBreakTLs.clone();
+              backupLineBreakTLs = new Vector<>(lineBreakTLs);
 
             printPageNumber = pageIndex;
             isPrinting = true;
@@ -1246,7 +1246,7 @@ public final class FontPanel extends JPanel implements AdjustmentListener {
        }
        public static Object getValue(int ordinal) {
            if (valArray == null) {
-               valArray = (FMValues[])EnumSet.allOf(FMValues.class).toArray(new FMValues[0]);
+               valArray = EnumSet.allOf(FMValues.class).toArray(new FMValues[0]);
            }
            for (int i=0;i<valArray.length;i++) {
                if (valArray[i].ordinal() == ordinal) {
@@ -1257,7 +1257,7 @@ public final class FontPanel extends JPanel implements AdjustmentListener {
        }
        private static FMValues[] getArray() {
            if (valArray == null) {
-               valArray = (FMValues[])EnumSet.allOf(FMValues.class).toArray(new FMValues[0]);
+               valArray = EnumSet.allOf(FMValues.class).toArray(new FMValues[0]);
            }
            return valArray;
        }
@@ -1308,7 +1308,7 @@ public final class FontPanel extends JPanel implements AdjustmentListener {
 
        public static Object getValue(int ordinal) {
            if (valArray == null) {
-               valArray = (AAValues[])EnumSet.allOf(AAValues.class).toArray(new AAValues[0]);
+               valArray = EnumSet.allOf(AAValues.class).toArray(new AAValues[0]);
            }
            for (int i=0;i<valArray.length;i++) {
                if (valArray[i].ordinal() == ordinal) {
@@ -1321,7 +1321,7 @@ public final class FontPanel extends JPanel implements AdjustmentListener {
        private static AAValues[] getArray() {
            if (valArray == null) {
                Object [] oa = EnumSet.allOf(AAValues.class).toArray(new AAValues[0]);
-               valArray = (AAValues[])(EnumSet.allOf(AAValues.class).toArray(new AAValues[0]));
+               valArray = EnumSet.allOf(AAValues.class).toArray(new AAValues[0]);
            }
            return valArray;
        }
