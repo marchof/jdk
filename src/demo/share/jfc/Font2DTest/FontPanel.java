@@ -392,7 +392,7 @@ public final class FontPanel extends JPanel implements AdjustmentListener {
         setTransformG2( g2transform ); // ABP
         setDrawMethod( method );
         setRenderingHints(AAValues.getValue(aa), FMValues.getValue(fm),
-                          new Integer(contrast));
+                          Integer.valueOf(contrast));
     }
 
     /// Writes the current screen to PNG file
@@ -1137,7 +1137,7 @@ public final class FontPanel extends JPanel implements AdjustmentListener {
                                   zoomAreaWidth / 2, (int) ( maxAscent * ZOOM ));
             g2.dispose();
             if ( !nowZooming )
-              zoomWindow.show();
+              zoomWindow.setVisible(true);
             /// This is sort of redundant... since there is a paint function
             /// inside zoomWindow definition that does the drawImage.
             /// (I should be able to call just repaint() here)
@@ -1176,7 +1176,7 @@ public final class FontPanel extends JPanel implements AdjustmentListener {
         public void mouseReleased( MouseEvent e ) {
             if ( textToUse == RANGE_TEXT || textToUse == ALL_GLYPHS ) {
                 if ( nowZooming )
-                  zoomWindow.hide();
+                  zoomWindow.setVisible(false);
                 nowZooming = false;
             }
             this.setCursor( Cursor.getDefaultCursor() );

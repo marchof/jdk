@@ -86,6 +86,6 @@ public final class Font2DTestApplet extends JApplet {
 
         f.getContentPane().add( f2dt );
         f.pack();
-        f.show();
+        f.setVisible(true);
     }
 }

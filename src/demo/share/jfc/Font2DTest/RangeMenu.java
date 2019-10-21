@@ -186,7 +186,7 @@ public final class RangeMenu extends JComboBox<String> implements ActionListener
                 if ( rangeName.equals("Custom...") ) {
                     useCustomRange = true;
                     customRangeDialog.setLocationRelativeTo(parent);
-                    customRangeDialog.show();
+                    customRangeDialog.setVisible(true);
                 }
                 else {
                   useCustomRange = false;
@@ -195,7 +195,7 @@ public final class RangeMenu extends JComboBox<String> implements ActionListener
         }
         else if ( source instanceof JButton ) {
                 /// Since it is only "OK" button that sends any action here...
-                customRangeDialog.hide();
+                customRangeDialog.setVisible(false);
         }
     }
 

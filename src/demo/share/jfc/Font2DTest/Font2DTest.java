@@ -358,7 +358,7 @@ public final class Font2DTest extends JPanel
         userTextDialog.pack();
         userTextDialog.addWindowListener( new WindowAdapter() {
             public void windowClosing( WindowEvent e ) {
-                userTextDialog.hide();
+                userTextDialog.setVisible(false);
             }
         });
 
@@ -384,7 +384,7 @@ public final class Font2DTest extends JPanel
         printDialog.setResizable( false );
         printDialog.addWindowListener( new WindowAdapter() {
             public void windowClosing( WindowEvent e ) {
-                printDialog.hide();
+                printDialog.setVisible(false);
             }
         });
         printDialog.getContentPane().setLayout( new GridLayout( printModeCBs.length + 2, 1 ));
@@ -401,7 +401,7 @@ public final class Font2DTest extends JPanel
         fontInfoDialog.setResizable( false );
         fontInfoDialog.addWindowListener( new WindowAdapter() {
             public void windowClosing( WindowEvent e ) {
-                fontInfoDialog.hide();
+                fontInfoDialog.setVisible(false);
                 showFontInfoCBMI.setState( false );
             }
         });
@@ -672,9 +672,9 @@ public final class Font2DTest extends JPanel
 
         /// Set the visibility of User Text dialog
         if ( selectedText == fp.USER_TEXT )
-          userTextDialog.show();
+          userTextDialog.setVisible(true);
         else
-          userTextDialog.hide();
+          userTextDialog.setVisible(false);
         /// Change the visibility/status/availability of Print JDialog buttons
         printModeCBs[ fp.ONE_PAGE ].setSelected( true );
         if ( selectedText == fp.FILE_TEXT || selectedText == fp.USER_TEXT ) {
@@ -792,10 +792,10 @@ public final class Font2DTest extends JPanel
                             lcdContrast, userTextOpt );
             if ( showFontInfoOpt ) {
                 fireUpdateFontInfo();
-                fontInfoDialog.show();
+                fontInfoDialog.setVisible(true);
             }
             else
-              fontInfoDialog.hide();
+              fontInfoDialog.setVisible(false);
         }
         catch ( Exception ex ) {
             fireChangeStatus( "ERROR: Failed to Load Options File; See Stack Trace", true );
@@ -818,7 +818,7 @@ public final class Font2DTest extends JPanel
                 }
             });
             f.pack();
-            f.show();
+            f.setVisible(true);
         }
         catch ( Exception ex ) {
             fireChangeStatus( "ERROR: Failed to Load PNG File; See Stack Trace", true );
@@ -860,7 +860,7 @@ public final class Font2DTest extends JPanel
             else if ( itemName.equals( "Page Setup..." ))
               fp.doPageSetup();
             else if ( itemName.equals( "Print..." ))
-              printDialog.show();
+              printDialog.setVisible(true);
             else if ( itemName.equals( "Close" ))
               parent.dispose();
             else if ( itemName.equals( "Exit" ))
@@ -892,12 +892,12 @@ public final class Font2DTest extends JPanel
             if ( itemName.equals( "Print" )) {
                 for ( int i = 0; i < printModeCBs.length; i++ )
                   if ( printModeCBs[i].isSelected() ) {
-                      printDialog.hide();
+                      printDialog.setVisible(false);
                       fp.doPrint( i );
                   }
             }
             else if ( itemName.equals( "Cancel" ))
-              printDialog.hide();
+              printDialog.setVisible(false);
             /// Update button from Usert Text JDialog...
             else if ( itemName.equals( "Update" ))
               fp.setTextToDraw( fp.USER_TEXT, null,
@@ -995,10 +995,10 @@ public final class Font2DTest extends JPanel
             else if ( cbmi == showFontInfoCBMI ) {
                 if ( showFontInfoCBMI.getState() ) {
                     fireUpdateFontInfo();
-                    fontInfoDialog.show();
+                    fontInfoDialog.setVisible(true);
                 }
                 else
-                  fontInfoDialog.hide();
+                  fontInfoDialog.setVisible(false);
             }
         }
     }
@@ -1038,7 +1038,7 @@ public final class Font2DTest extends JPanel
 
         f.getContentPane().add( f2dt );
         f.pack();
-        f.show();
+        f.setVisible(true);
     }
 
     /// Inner class definitions...

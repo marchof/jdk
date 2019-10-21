@@ -578,7 +578,7 @@ public class SwingSet2 extends JPanel {
 
         // register key binding to activate popup menu
         InputMap map = getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
-        map.put(KeyStroke.getKeyStroke(KeyEvent.VK_F10, InputEvent.SHIFT_MASK),
+        map.put(KeyStroke.getKeyStroke(KeyEvent.VK_F10, InputEvent.SHIFT_DOWN_MASK),
                 "postMenuAction");
         map.put(KeyStroke.getKeyStroke(KeyEvent.VK_CONTEXT_MENU, 0), "postMenuAction");
         getActionMap().put("postMenuAction", new ActivatePopupMenuAction(this, popup));
@@ -686,7 +686,7 @@ public class SwingSet2 extends JPanel {
                     screenInsets.top : centerHeight;
 
             f.setLocation(centerWidth, centerHeight);
-            f.show();
+            f.setVisible(true);
             numSSs++;
             swingSets.add(this);
         }
@@ -1213,7 +1213,7 @@ public class SwingSet2 extends JPanel {
             } else {
                 aboutBox.setLocationRelativeTo(getFrame());
             }
-            aboutBox.show();
+            aboutBox.setVisible(true);
         }
     }
 

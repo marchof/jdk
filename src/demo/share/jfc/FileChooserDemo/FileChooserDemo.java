@@ -158,7 +158,7 @@ public class FileChooserDemo extends JPanel implements ActionListener {
         for (UIManager.LookAndFeelInfo lafInfo : installedLafs) {
             try {
                 Class<?> lnfClass = Class.forName(lafInfo.getClassName());
-                LookAndFeel laf = (LookAndFeel) (lnfClass.newInstance());
+                LookAndFeel laf = (LookAndFeel) (lnfClass.getDeclaredConstructor().newInstance());
                 if (laf.isSupportedLookAndFeel()) {
                     String name = lafInfo.getName();
                     SupportedLaF supportedLaF = new SupportedLaF(name, laf);
