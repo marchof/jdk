@@ -51,7 +51,7 @@ import java.net.*;
  *
  * @author Jeff Dinkins
  */
-public class DemoModule extends JApplet {
+public class DemoModule extends JFrame {
 
     // The preferred size of the demo
     private int PREFERRED_WIDTH = 680;
