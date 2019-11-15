@@ -28,7 +28,6 @@ package sun.tools.java;
 import sun.tools.tree.*;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Enumeration;
 import java.util.Vector;
 
 /**
@@ -604,7 +603,7 @@ class Parser extends Scanner implements ParserActions, Constants {
 
             if (token == LPAREN) {
                 scan();
-                Expression e = parseExpression();
+                parseExpression();
                 expect(RPAREN);
                 env.error(p, "not.supported", "new(...)");
                 return new NullExpression(p);

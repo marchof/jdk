@@ -27,7 +27,6 @@ package sun.tools.tree;
 
 import sun.tools.java.*;
 import sun.tools.asm.Assembler;
-import sun.tools.asm.Label;
 import sun.tools.asm.TryData;
 import sun.tools.asm.CatchData;
 import java.io.PrintStream;

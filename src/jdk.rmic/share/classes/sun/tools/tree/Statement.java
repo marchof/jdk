@@ -244,7 +244,6 @@ class Statement extends Node {
         }
         if (save != null) {
             // This statement has a return value on the stack.
-            ClassDefinition def = ctx.field.getClassDefinition();
             if (!haveNonLocalFinally) {
                 // Save the return value in the register which should have
                 // been reserved.

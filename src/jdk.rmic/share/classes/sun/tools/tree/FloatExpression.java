@@ -50,7 +50,7 @@ class FloatExpression extends ConstantExpression {
      * Get the value
      */
     public Object getValue() {
-        return new Float(value);
+        return Float.valueOf(value);
     }
 
     /**
@@ -72,7 +72,7 @@ class FloatExpression extends ConstantExpression {
      * Code
      */
     public void codeValue(Environment env, Context ctx, Assembler asm) {
-        asm.add(where, opc_ldc, new Float(value));
+        asm.add(where, opc_ldc, Float.valueOf(value));
     }
 
     /**

@@ -56,7 +56,6 @@ import sun.tools.java.ClassPath;
 import sun.tools.javac.SourceClass;
 import sun.tools.util.CommandLine;
 import java.lang.reflect.Constructor;
-import java.util.Properties;
 
 /**
  * Main "rmic" program.
@@ -65,6 +64,7 @@ import java.util.Properties;
  * supported API.  Code that depends on them does so at its own risk:
  * they are subject to change or removal without notice.
  */
+@SuppressWarnings("deprecation")
 public class Main implements sun.rmi.rmic.Constants {
     String sourcePathArg;
     String sysClassPathArg;
@@ -89,13 +89,13 @@ public class Main implements sun.rmi.rmic.Constants {
     /**
      * The stream where error message are printed.
      */
-    OutputStream out;
+    PrintStream out;
 
     /**
      * Constructor.
      */
     public Main(OutputStream out, String program) {
-        this.out = out;
+        this.out = out instanceof PrintStream ? (PrintStream) out : new PrintStream(out, true);;
         this.program = program;
     }
 
@@ -103,9 +103,6 @@ public class Main implements sun.rmi.rmic.Constants {
      * Output a message.
      */
     public void output(String msg) {
-        PrintStream out =
-            this.out instanceof PrintStream ? (PrintStream)this.out
-            : new PrintStream(this.out, true);
         out.println(msg);
     }
 
@@ -481,7 +478,7 @@ public class Main implements sun.rmi.rmic.Constants {
     /**
      * Do the compile with the switches and files already supplied
      */
-    public boolean doCompile() {
+	public boolean doCompile() {
         // Create batch environment
         BatchEnvironment env = getEnv();
         env.flags |= flags;
@@ -655,7 +652,7 @@ public class Main implements sun.rmi.rmic.Constants {
      * Compile a single class.
      * Fallthrough is intentional
      */
-    @SuppressWarnings({"fallthrough", "deprecation"})
+    @SuppressWarnings({"fallthrough"})
     public boolean compileClass (ClassDeclaration c,
                                  ByteArrayOutputStream buf,
                                  BatchEnvironment env)

@@ -616,7 +616,6 @@ class MethodExpression extends NaryExpression {
             if (code < 0)  break;
             int i = code >> 2;
             boolean castOK = (code & 2) != 0;
-            boolean ambig = (code & 1) != 0;
             Type targetType = margType[0];
 
             // At least one argument is offensive to all overloadings.
@@ -625,6 +624,7 @@ class MethodExpression extends NaryExpression {
 
             // The message might be slightly misleading, if there are other
             // argument types that also would match.  Hint at this:
+            // boolean ambig = (code & 1) != 0;
             //if (ambig)  ttype = "{"+ttype+";...}";
 
             if (castOK)

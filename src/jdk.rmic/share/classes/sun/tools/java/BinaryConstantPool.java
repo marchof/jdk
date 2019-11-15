@@ -52,7 +52,6 @@ class BinaryConstantPool implements Constants {
         types = new byte[in.readUnsignedShort()];
         cpool = new Object[types.length];
         for (int i = 1 ; i < cpool.length ; i++) {
-            int j = i;
             // JVM 4.4 cp_info.tag
             switch(types[i] = in.readByte()) {
               case CONSTANT_UTF8:
@@ -63,13 +62,13 @@ class BinaryConstantPool implements Constants {
                 cpool[i] = in.readInt();
                 break;
               case CONSTANT_FLOAT:
-                cpool[i] = new Float(in.readFloat());
+                cpool[i] = Float.valueOf(in.readFloat());
                 break;
               case CONSTANT_LONG:
                 cpool[i++] = in.readLong();
                 break;
               case CONSTANT_DOUBLE:
-                cpool[i++] = new Double(in.readDouble());
+                cpool[i++] = Double.valueOf(in.readDouble());
                 break;
 
               case CONSTANT_CLASS:

@@ -25,7 +25,6 @@
 
 package sun.tools.asm;
 
-import sun.tools.java.*;
 import java.util.Vector;
 
 /**

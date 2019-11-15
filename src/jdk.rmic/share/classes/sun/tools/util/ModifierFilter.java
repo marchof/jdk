@@ -25,6 +25,7 @@
 
 package sun.tools.util;
 
+import java.lang.reflect.Modifier;
 import sun.tools.java.*;
 
 
@@ -43,7 +44,7 @@ import sun.tools.java.*;
  */
 
 public
-class ModifierFilter extends java.lang.reflect.Modifier {
+class ModifierFilter {
 
     /**
     * Package private access.
@@ -60,13 +61,13 @@ class ModifierFilter extends java.lang.reflect.Modifier {
     * Same as PRIVATE | PROTECTED | PUBLIC | PACKAGE.
     */
     public static final long ALL_ACCESS =
-                PRIVATE | PROTECTED | PUBLIC | PACKAGE;
+                Modifier.PRIVATE | Modifier.PROTECTED | Modifier.PUBLIC | PACKAGE;
 
     private long oneOf;
     private long must;
     private long cannot;
 
-    private static final int ACCESS_BITS = PRIVATE | PROTECTED | PUBLIC;
+    private static final int ACCESS_BITS = Modifier.PRIVATE | Modifier.PROTECTED | Modifier.PUBLIC;
 
     /**
      * Constructor - Specify a filter.

@@ -27,7 +27,6 @@ package sun.tools.java;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Hashtable;
 
 /**
  * A Scanner for Java tokens. Errors are reported

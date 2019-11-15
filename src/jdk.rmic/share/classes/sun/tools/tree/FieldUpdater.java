@@ -27,7 +27,6 @@ package sun.tools.tree;
 
 import sun.tools.java.*;
 import sun.tools.asm.Assembler;
-import java.io.PrintStream;
 
 /**
  * This class encapsulates the information required to generate an update to a private

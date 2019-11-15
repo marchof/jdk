@@ -170,7 +170,8 @@ public class RemoteClass implements sun.rmi.rmic.RMIConstants {
      * Validate that the remote implementation class is properly formed
      * and fill in the data structures required by the public interface.
      */
-    private boolean initialize() {
+    @SuppressWarnings("deprecation")
+	private boolean initialize() {
         /*
          * Verify that the "impl" is really a class, not an interface.
          */

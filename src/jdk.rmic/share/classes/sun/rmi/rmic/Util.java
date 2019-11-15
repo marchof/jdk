@@ -60,13 +60,10 @@ public class Util implements sun.rmi.rmic.Constants {
                                              BatchEnvironment env) {
 
         File outputDir = null;
-        String className = theClass.getFlatName().toString().replace('.', SIGC_INNERCLASS);
-        String qualifiedClassName = className;
         String packagePath = null;
         String packageName = theClass.getQualifier().toString();
 
         if (packageName.length() > 0) {
-            qualifiedClassName = packageName + "." + className;
             packagePath = packageName.replace('.', File.separatorChar);
         }
 

@@ -27,7 +27,6 @@ package sun.tools.java;
 
 import sun.tools.tree.*;
 import java.util.Vector;
-import java.util.Hashtable;
 import java.io.IOException;
 import java.io.DataInputStream;
 import java.io.ByteArrayInputStream;

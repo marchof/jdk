@@ -25,9 +25,7 @@
 
 package sun.tools.java;
 
-import java.util.Stack;
 import java.io.IOException;
-import sun.tools.tree.Context;
 //JCOV
 import java.io.File;
 //end JCOV

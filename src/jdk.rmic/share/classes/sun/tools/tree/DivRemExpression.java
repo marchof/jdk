@@ -26,8 +26,6 @@
 package sun.tools.tree;
 
 import sun.tools.java.*;
-import sun.tools.asm.Assembler;
-import java.util.Hashtable;
 
 /**
  * WARNING: The contents of this source file are not part of any

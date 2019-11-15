@@ -25,7 +25,6 @@
 
 package sun.tools.asm;
 
-import sun.tools.java.*;
 import java.util.Hashtable;
 import java.util.Enumeration;
 import java.util.Arrays;
@@ -99,8 +98,8 @@ class SwitchData {
             whereCaseTab.put(Integer.valueOf(index), Long.valueOf(where));
     }
     // this puts String key into Hashtable<Integer, Long>
-    @SuppressWarnings("unchecked")
-    public void addTableDefault(long where) {
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	public void addTableDefault(long where) {
         if (whereCaseTab != null)
             ((Hashtable)whereCaseTab).put("default", Long.valueOf(where));
     }

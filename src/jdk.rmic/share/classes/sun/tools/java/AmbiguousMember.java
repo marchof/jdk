@@ -25,8 +25,6 @@
 
 package sun.tools.java;
 
-import java.util.Enumeration;
-
 /**
  * This exception is thrown when a field reference is
  * ambiguous.

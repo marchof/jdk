@@ -200,8 +200,6 @@ class IdentifierExpression extends Expression {
                 // the referenced field is pre-set as it is here.
 
                 if (f.isStatic()) {
-                    Expression base = new TypeExpression(where,
-                                        f.getClassDeclaration().getType());
                     implementation = new FieldExpression(where, null, f);
                 } else {
                     Expression base = ctx.findOuterLink(env, where, f);

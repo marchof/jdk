@@ -395,7 +395,6 @@ class FieldExpression extends UnaryExpression {
         switch (t.getTypeCode()) {
           case TC_CLASS:
             try {
-                Identifier nm = t.getClassName();
                 // Why not just use 'Environment.getClassDeclaration' here?
                 // But 'Environment.getClassDeclation' has special treatment
                 // for local classes that is probably necessary.  This code

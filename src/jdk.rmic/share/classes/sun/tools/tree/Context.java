@@ -26,7 +26,6 @@
 package sun.tools.tree;
 
 import sun.tools.java.*;
-import sun.tools.asm.Assembler;
 
 /**
  * WARNING: The contents of this source file are not part of any
@@ -450,9 +449,6 @@ class Context implements Constants {
         // thise is a link expression being built up
         Expression thise = null;
 
-        // root is the local variable (idThis) at the far left of thise
-        LocalMember root = null;
-
         // thisc is the class of the link expression thise
         ClassDefinition thisc = null;
 
@@ -478,7 +474,6 @@ class Context implements Constants {
                 }
                 thise = new ThisExpression(where, lp);
                 thisc = lp.getClassDefinition();
-                root = lp;
                 lp = lp.prev;
             }
 

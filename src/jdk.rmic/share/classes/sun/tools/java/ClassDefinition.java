@@ -26,7 +26,6 @@
 package sun.tools.java;
 
 import java.util.*;
-import java.io.OutputStream;
 import java.io.PrintStream;
 import sun.tools.tree.Context;
 import sun.tools.tree.Vset;
@@ -66,7 +65,6 @@ class ClassDefinition implements Constants {
     protected UplevelReference references;
     protected boolean referencesFrozen;
     private Hashtable<Identifier, MemberDefinition> fieldHash = new Hashtable<>(31);
-    private int abstr;
 
     // Table of local and anonymous classes whose internal names are constructed
     // using the current class as a prefix.  This is part of a fix for

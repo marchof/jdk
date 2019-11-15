@@ -30,7 +30,6 @@ import java.io.DataInputStream;
 import java.io.OutputStream;
 import java.io.DataOutputStream;
 import java.io.ByteArrayInputStream;
-import java.util.Hashtable;
 import java.util.Vector;
 import java.util.Enumeration;
 

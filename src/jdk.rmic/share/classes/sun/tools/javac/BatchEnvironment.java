@@ -46,7 +46,7 @@ class BatchEnvironment extends Environment implements ErrorConsumer {
     /**
      * The stream where error message are printed.
      */
-    OutputStream out;
+    PrintStream out;
 
     /**
      * The path we use for finding source files.
@@ -148,7 +148,7 @@ class BatchEnvironment extends Environment implements ErrorConsumer {
                             ClassPath sourcePath,
                             ClassPath binaryPath,
                             ErrorConsumer errorConsumer) {
-        this.out = out;
+        this.out = out instanceof PrintStream ? (PrintStream) out : new PrintStream(this.out, true);
         this.sourcePath = sourcePath;
         this.binaryPath = binaryPath;
         this.errorConsumer = (errorConsumer == null) ? this : errorConsumer;
@@ -1346,9 +1346,6 @@ class BatchEnvironment extends Environment implements ErrorConsumer {
      * for debugging.
      */
     public void output(String msg) {
-        PrintStream out =
-            this.out instanceof PrintStream ? (PrintStream)this.out
-                                            : new PrintStream(this.out, true);
         out.println(msg);
     }
 }

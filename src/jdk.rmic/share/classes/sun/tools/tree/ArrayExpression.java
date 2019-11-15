@@ -27,7 +27,6 @@ package sun.tools.tree;
 
 import sun.tools.java.*;
 import sun.tools.asm.*;
-import java.io.PrintStream;
 import java.util.Hashtable;
 
 /**
@@ -91,7 +90,6 @@ class ArrayExpression extends NaryExpression {
      * Code
      */
     public void codeValue(Environment env, Context ctx, Assembler asm) {
-        int t = 0;
         asm.add(where, opc_ldc, args.length);
         switch (type.getElementType().getTypeCode()) {
           case TC_BOOLEAN:      asm.add(where, opc_newarray, T_BOOLEAN);   break;

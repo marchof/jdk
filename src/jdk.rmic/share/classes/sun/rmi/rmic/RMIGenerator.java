@@ -128,7 +128,8 @@ public class RMIGenerator implements RMIConstants, Generator {
         gen.generate();
     }
 
-    private void generate() {
+    @SuppressWarnings("deprecation")
+	private void generate() {
         env.addGeneratedFile(stubFile);
 
         try {
@@ -220,7 +221,6 @@ public class RMIGenerator implements RMIConstants, Generator {
     private Identifier stubClassName;
     private Identifier skeletonClassName;
 
-    private ClassDefinition cdef;
     private File destDir;
     private File stubFile;
     private File skeletonFile;
@@ -241,12 +241,12 @@ public class RMIGenerator implements RMIConstants, Generator {
      * remote implementation class to generate code according to
      * the given stub protocol version.
      */
-    private RMIGenerator(BatchEnvironment env, ClassDefinition cdef,
+    @SuppressWarnings("deprecation")
+	private RMIGenerator(BatchEnvironment env, ClassDefinition cdef,
                            File destDir, RemoteClass remoteClass, int version)
         throws ClassNotFound
     {
         this.destDir     = destDir;
-        this.cdef        = cdef;
         this.env         = env;
         this.remoteClass = remoteClass;
         this.version     = version;

@@ -57,13 +57,13 @@ class Main implements Constants {
     /**
      * The stream where error message are printed.
      */
-    OutputStream out;
+    PrintStream out;
 
     /**
      * Constructor.
      */
     public Main(OutputStream out, String program) {
-        this.out = out;
+        this.out = out instanceof PrintStream ? (PrintStream) out : new PrintStream(out, true);;
         this.program = program;
     }
 
@@ -98,9 +98,6 @@ class Main implements Constants {
      * Output a message.
      */
     private void output(String msg) {
-        PrintStream out =
-            this.out instanceof PrintStream ? (PrintStream)this.out
-                                            : new PrintStream(this.out, true);
         out.println(msg);
     }
 
@@ -213,7 +210,6 @@ class Main implements Constants {
         long tm = System.currentTimeMillis();
         Vector<String> v = new Vector<>();
         boolean nowrite = false;
-        String props = null;
         String encoding = null;
 
         // These flags are used to make sure conflicting -O and -g

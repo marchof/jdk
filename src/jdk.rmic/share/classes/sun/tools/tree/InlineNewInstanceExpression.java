@@ -26,10 +26,8 @@
 package sun.tools.tree;
 
 import sun.tools.java.*;
-import sun.tools.asm.Label;
 import sun.tools.asm.Assembler;
 import java.io.PrintStream;
-import java.util.Vector;
 
 /**
  * WARNING: The contents of this source file are not part of any

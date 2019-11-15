@@ -25,7 +25,6 @@
 
 package sun.tools.tree;
 
-import sun.tools.java.*;
 import sun.tools.asm.Label;
 
 /**

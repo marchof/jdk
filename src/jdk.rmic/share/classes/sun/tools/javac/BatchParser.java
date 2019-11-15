@@ -31,7 +31,6 @@ import sun.tools.tree.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Vector;
-import java.util.Enumeration;
 
 /**
  * Batch file parser, this needs more work.
@@ -84,8 +83,6 @@ class BatchParser extends Parser {
      * Package declaration
      */
     public void packageDeclaration(long where, IdentifierToken t) {
-        Identifier nm = t.getName();
-        //System.out.println("package " + nm);
         if (pkg == null) {
             // This code has been changed to pass an IdentifierToken,
             // rather than an Identifier, to setCurrentPackage().  Imports

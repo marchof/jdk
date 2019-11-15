@@ -26,7 +26,6 @@
 package sun.tools.asm;
 
 import sun.tools.java.MemberDefinition;
-import java.io.OutputStream;
 
 /**
  * A label instruction. This is a 0 size instruction.

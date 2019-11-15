@@ -26,7 +26,6 @@
 package sun.tools.tree;
 
 import sun.tools.java.*;
-import sun.tools.tree.*;
 import java.util.Vector;
 
 /**

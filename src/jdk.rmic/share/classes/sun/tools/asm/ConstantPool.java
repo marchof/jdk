@@ -29,7 +29,6 @@ import sun.tools.java.*;
 import sun.tools.tree.StringExpression;
 import java.util.Enumeration;
 import java.util.Hashtable;
-import java.util.Vector;
 import java.io.IOException;
 import java.io.DataOutputStream;
 

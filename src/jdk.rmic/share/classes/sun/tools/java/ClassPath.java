@@ -33,8 +33,6 @@ import java.util.Enumeration;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Hashtable;
-import java.util.Set;
-import java.util.LinkedHashSet;
 import java.net.URI;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
@@ -42,7 +40,6 @@ import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.nio.file.ProviderNotFoundException;
-import java.nio.file.spi.FileSystemProvider;
 
 /**
  * This class is used to represent a class path, which can contain both

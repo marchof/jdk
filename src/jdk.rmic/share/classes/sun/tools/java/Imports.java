@@ -179,7 +179,6 @@ class Imports implements Constants {
             IdentifierToken t = e.nextElement();
             Identifier nm = t.getName();
             long where = t.getWhere();
-            Identifier pkg = nm.getQualifier();
 
             // (Note: This code is moved from BatchParser.importClass().)
             nm = env.resolvePackageQualifiedName(nm);

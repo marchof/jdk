@@ -237,7 +237,6 @@ class Assembler implements Constants {
         // Collect constants for arguments only
         // if a local variable table is generated
         if ((field != null) && env.debug_vars()) {
-            @SuppressWarnings("unchecked")
             Vector<MemberDefinition> v = field.getArguments();
             if (v != null) {
                 for (Enumeration<MemberDefinition> e = v.elements() ; e.hasMoreElements() ;) {
@@ -385,7 +384,6 @@ class Assembler implements Constants {
 
         if ((field != null) && field.getArguments() != null) {
               int sum = 0;
-              @SuppressWarnings("unchecked")
               Vector<MemberDefinition> v = field.getArguments();
               for (Enumeration<MemberDefinition> e = v.elements(); e.hasMoreElements(); ) {
                   MemberDefinition f = e.nextElement();
@@ -472,7 +470,6 @@ class Assembler implements Constants {
         @SuppressWarnings("deprecation")
         long whereClass = ((SourceClass)c).getWhere();
         Vector<Long> whereTry = new Vector<>();
-        int numberTry = 0;
         int count = 0;
 
         for (Instruction inst = first ; inst != null ; inst = inst.next) {
@@ -857,7 +854,6 @@ public void GenJCov(Environment env) {
         // Initialize arguments
         if ((field != null) && (field.getArguments() != null)) {
             int reg = 0;
-            @SuppressWarnings("unchecked")
             Vector<MemberDefinition> v = field.getArguments();
             for (Enumeration<MemberDefinition> e = v.elements(); e.hasMoreElements(); ) {
                 MemberDefinition f = e.nextElement();
@@ -874,7 +870,6 @@ public void GenJCov(Environment env) {
             locals[i] = null;
         if ((field != null) && (field.getArguments() != null)) {
             int reg = 0;
-            @SuppressWarnings("unchecked")
             Vector<MemberDefinition> v = field.getArguments();
             for (Enumeration<MemberDefinition> e = v.elements(); e.hasMoreElements(); ) {
                 MemberDefinition f = e.nextElement();

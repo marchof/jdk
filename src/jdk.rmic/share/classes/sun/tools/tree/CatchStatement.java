@@ -28,7 +28,6 @@ package sun.tools.tree;
 import sun.tools.java.*;
 import sun.tools.asm.Assembler;
 import sun.tools.asm.LocalVariable;
-import sun.tools.asm.Label;
 import java.io.PrintStream;
 import java.util.Hashtable;
 

@@ -234,7 +234,7 @@ public class BatchEnvironment extends sun.tools.javac.BatchEnvironment {
                 this.path = path;
                 this.emptyPathDefault = emptyPathDefault;
             }
-            public PathIterator(String path) { this(path, null); }
+
             public Iterator<String> iterator() {
                 return new Iterator<String>() {
                     public boolean hasNext() {
@@ -324,33 +324,6 @@ public class BatchEnvironment extends sun.tools.javac.BatchEnvironment {
         }
 
         public Path() { super(); }
-
-        public Path addDirectories(String dirs, boolean warn) {
-            if (dirs != null)
-                for (String dir : new PathIterator(dirs))
-                    addDirectory(dir, warn);
-            return this;
-        }
-
-        public Path addDirectories(String dirs) {
-            return addDirectories(dirs, warn);
-        }
-
-        private void addDirectory(String dir, boolean warn) {
-            if (! new File(dir).isDirectory()) {
-//              if (warn)
-//                  log.warning(Position.NOPOS,
-//                              "dir.path.element.not.found", dir);
-                return;
-            }
-
-            for (String direntry : new File(dir).list()) {
-                String canonicalized = direntry.toLowerCase();
-                if (canonicalized.endsWith(".jar") ||
-                    canonicalized.endsWith(".zip"))
-                    addFile(dir + File.separator + direntry, warn);
-            }
-        }
 
         public Path addFiles(String files, boolean warn) {
             if (files != null)

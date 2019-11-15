@@ -38,7 +38,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.DataOutputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 
 /**
  * This class represents an Java class as it is read from
@@ -360,7 +359,6 @@ class SourceClass extends ClassDefinition {
             Vector<MemberDefinition> arguments = f.getArguments();
             if (arguments != null) {
                 // arguments can be null if this is an implicit abstract method
-                int argumentLength = arguments.size();
                 Type argTypes[] = f.getType().getArgumentTypes();
                 for (int i = 0; i < argTypes.length; i++) {
                     Object arg = arguments.elementAt(i);
@@ -1014,7 +1012,7 @@ class SourceClass extends ClassDefinition {
                     checkBlankFinals(env, ctxInit, vsCon, false);
                     // (drop vsCon here)
                 } else {
-                    Vset vsFld = f.check(env, ctx, vset.copy());
+                    f.check(env, ctx, vset.copy());
                     // (drop vsFld here)
                 }
             } catch (ClassNotFound ee) {
