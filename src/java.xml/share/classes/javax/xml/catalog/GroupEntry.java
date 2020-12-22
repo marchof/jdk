@@ -89,7 +89,7 @@ class GroupEntry extends BaseEntry {
     /**
      * PreferType represents possible values of the prefer property
      */
-    public static enum PreferType {
+    static enum PreferType {
         PUBLIC("public"),
         SYSTEM("system");
 
@@ -107,7 +107,7 @@ class GroupEntry extends BaseEntry {
     /**
      * PreferType represents possible values of the resolve property
      */
-    public static enum ResolveType {
+    static enum ResolveType {
         STRICT(CatalogFeatures.RESOLVE_STRICT),
         CONTINUE(CatalogFeatures.RESOLVE_CONTINUE),
         IGNORE(CatalogFeatures.RESOLVE_IGNORE);

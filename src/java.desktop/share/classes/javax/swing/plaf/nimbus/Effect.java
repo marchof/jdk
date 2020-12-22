@@ -84,7 +84,7 @@ abstract class Effect {
         return cache;
     }
 
-    protected static class ArrayCache {
+    static class ArrayCache {
         private SoftReference<int[]> tmpIntArray = null;
         private SoftReference<byte[]> tmpByteArray1 = null;
         private SoftReference<byte[]> tmpByteArray2 = null;

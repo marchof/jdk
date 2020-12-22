@@ -1299,7 +1299,7 @@ import javax.swing.text.*;
     /**
      * View of a row in a row-centric table.
      */
-    public class RowView extends BoxView {
+    class RowView extends BoxView {
 
         /**
          * Constructs a TableView for the given element.

@@ -315,7 +315,7 @@ class MetalSplitPaneDivider extends BasicSplitPaneDivider
      * This class should be treated as a &quot;protected&quot; inner class.
      * Instantiate it only within subclasses of MetalSplitPaneDivider.
      */
-    public class MetalDividerLayout implements LayoutManager {
+    class MetalDividerLayout implements LayoutManager {
 
         // NOTE NOTE NOTE NOTE NOTE
         // This class is no longer used, the functionality has

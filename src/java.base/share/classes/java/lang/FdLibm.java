@@ -105,7 +105,7 @@ class FdLibm {
      * cbrt(x)
      * Return cube root of x
      */
-    public static class Cbrt {
+    static class Cbrt {
         // unsigned
         private static final int B1 = 715094163; /* B1 = (682-0.03306235651)*2**20 */
         private static final int B2 = 696219795; /* B2 = (664-0.03306235651)*2**20 */
@@ -195,7 +195,7 @@ class FdLibm {
      *      hypot(x,y) returns sqrt(x^2 + y^2) with error less
      *      than 1 ulp (unit in the last place)
      */
-    public static class Hypot {
+    static class Hypot {
         public static final double TWO_MINUS_600 = 0x1.0p-600;
         public static final double TWO_PLUS_600  = 0x1.0p+600;
 
@@ -338,7 +338,7 @@ class FdLibm {
      *      always returns the correct integer provided it is
      *      representable.
      */
-    public static class Pow {
+    static class Pow {
         private Pow() {
             throw new UnsupportedOperationException();
         }

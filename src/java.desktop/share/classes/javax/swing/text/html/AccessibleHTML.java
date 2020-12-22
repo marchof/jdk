@@ -294,7 +294,7 @@ class AccessibleHTML implements Accessible {
     /*
      * Base AccessibleContext class for HTML elements
      */
-    protected abstract class HTMLAccessibleContext extends AccessibleContext
+    abstract class HTMLAccessibleContext extends AccessibleContext
         implements Accessible, AccessibleComponent {
 
         protected ElementInfo elementInfo;
@@ -837,7 +837,7 @@ class AccessibleHTML implements Accessible {
         /*
          * AccessibleContext for text elements
          */
-        public class TextAccessibleContext extends HTMLAccessibleContext
+        class TextAccessibleContext extends HTMLAccessibleContext
             implements AccessibleText {
 
             public TextAccessibleContext(ElementInfo elementInfo) {
@@ -1281,7 +1281,7 @@ class AccessibleHTML implements Accessible {
         /*
          * AccessibleContext for images
          */
-        protected class IconAccessibleContext extends HTMLAccessibleContext
+        class IconAccessibleContext extends HTMLAccessibleContext
             implements AccessibleIcon  {
 
             public IconAccessibleContext(ElementInfo elementInfo) {
@@ -1579,7 +1579,7 @@ class AccessibleHTML implements Accessible {
         /*
          * AccessibleContext for tables
          */
-        public class TableAccessibleContext extends HTMLAccessibleContext
+        class TableAccessibleContext extends HTMLAccessibleContext
             implements AccessibleTable {
 
             private AccessibleHeadersTable rowHeadersTable;
